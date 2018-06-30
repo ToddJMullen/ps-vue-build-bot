@@ -2,7 +2,7 @@
 	<div class="child-comp-root content">
 		<button class="btnAddToCart" @click="addToCart()" >Add To Cart</button>
 		<div class="top-row">
-			<div class="top part">
+			<div class="top part" :style="headBorderStyle">
 				<!--<div v-once class="robot-name">-->
 				<!--above would only parse once, then remove binding to free binding-->
 				<div class="deep-child-elem robot-name">
@@ -99,6 +99,12 @@
 					,base: availableParts.bases[ this.currentBase ]
 				}
 			}//selectedRobot
+			,headBorderStyle() {
+				console.log("headBorderStyle()");
+				return {
+					border: this.selectedRobot.head.onSale ? "2px outset #0f0" : "1px solid #300"
+				}
+			}//headBorderStyle
 		}//computed
 		,methods: {
 			addToCart() {
