@@ -41,8 +41,25 @@
 				<button @click="nextBase()" class="next-selector">&#9658;</button>
 			</div>
 		</div>
+		<div>
+			<h1>Cart</h1>
+			<table>
+				<thead>
+					<tr>
+						<th>Bot Name</th>
+						<th>Price</th>
+					</tr>
+				</thead>
+				<tbody>
+					<!--note: For performance, do not use v-if and v-for on same element. Filter elements instead-->
+					<tr v-for="(bot, index) in cart" :key="index">
+						<td>{{bot.head.title}}</td>
+						<td class="cost">{{bot.cost}}</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
 	</div>
-
 </template>
 
 <script>
@@ -257,6 +274,15 @@
 		width: 200px;
 		padding: 7px;
 		font-size: 2em;
+		color: #090;
+	}
+	td,th{
+		text-align: left;
+		padding: 5px;
+		padding-left: 20px;
+	}
+	td.cost{
+		text-align: right;
 		color: #090;
 	}
 </style>
