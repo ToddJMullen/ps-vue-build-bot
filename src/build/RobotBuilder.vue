@@ -2,31 +2,31 @@
 	<div>
 		<div class="top-row">
 			<div class="top part">
-				<img :src="availableParts.heads[ currentHead ].src" title="Head"/>
+				<img :src="selectedRobot.head.src" title="Head"/>
 				<button @click="prevHead()" class="prev-selector">&#9668;</button>
 				<button @click="nextHead()" class="next-selector">&#9658;</button>
 			</div>
 		</div>
 		<div class="middle-row">
 			<div class="left part">
-				<img :src="availableParts.arms[ currentArmL ].src" title="Left arm"/>
+				<img :src="selectedRobot.armL.src" title="Left arm"/>
 				<button @click="prevArmL()" class="prev-selector">&#9650;</button>
 				<button @click="nextArmL()" class="next-selector">&#9660;</button>
 			</div>
 			<div class="center part">
-				<img :src="availableParts.torsos[ currentTorso ].src" title="Torso"/>
+				<img :src="selectedRobot.torso.src" title="Torso"/>
 				<button @click="prevTorso()" class="prev-selector">&#9668;</button>
 				<button @click="nextTorso()" class="next-selector">&#9658;</button>
 			</div>
 			<div class="right part">
-				<img :src="availableParts.arms[ currentArmR ].src" title="Right arm"/>
+				<img :src="selectedRobot.armR.src" title="Right arm"/>
 				<button @click="prevArmR()" class="prev-selector">&#9650;</button>
 				<button @click="nextArmR()" class="next-selector">&#9660;</button>
 			</div>
 		</div>
 		<div class="bottom-row">
 			<div class="bottom part">
-				<img :src="availableParts.bases[ currentBase ].src" title="Base"/>
+				<img :src="selectedRobot.base.src" title="Base"/>
 				<button @click="prevBase()" class="prev-selector">&#9668;</button>
 				<button @click="nextBase()" class="next-selector">&#9658;</button>
 			</div>
@@ -60,6 +60,17 @@
 				,currentArmR: 0
 				,currentBase: 0
 			};
+		}
+		,computed: {
+			selectedRobot(){
+				return {
+					head: availableParts.heads[ this.currentHead ]
+					,armL: availableParts.arms[ this.currentArmL ]
+					,torso: availableParts.torsos[ this.currentTorso ]
+					,armR: availableParts.arms[ this.currentArmR ]
+					,base: availableParts.bases[ this.currentBase ]
+				}
+			}
 		}
 		,methods: {
 			nextHead() {
