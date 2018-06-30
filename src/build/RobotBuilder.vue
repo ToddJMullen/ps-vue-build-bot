@@ -2,33 +2,33 @@
 	<div>
 		<div class="top-row">
 			<div class="top part">
-				<img v-bind:src="availableParts.heads[0].src" title="head"/>
-				<button class="prev-selector">&#9668;</button>
-				<button class="next-selector">&#9658;</button>
+				<img v-bind:src="availableParts.heads[ currentHead ].src" title="Head"/>
+				<button v-on:click="prevHead()" class="prev-selector">&#9668;</button>
+				<button v-on:click="nextHead()" class="next-selector">&#9658;</button>
 			</div>
 		</div>
 		<div class="middle-row">
 			<div class="left part">
-				<img v-bind:src="availableParts.arms[0].src" title="left arm"/>
-				<button class="prev-selector">&#9650;</button>
-				<button class="next-selector">&#9660;</button>
+				<img v-bind:src="availableParts.arms[ currentArmL ].src" title="Left arm"/>
+				<button v-on:click="prevArmL()" class="prev-selector">&#9650;</button>
+				<button v-on:click="nextArmL()" class="next-selector">&#9660;</button>
 			</div>
 			<div class="center part">
-				<img v-bind:src="availableParts.torsos[0].src" title="left arm"/>
-				<button class="prev-selector">&#9668;</button>
-				<button class="next-selector">&#9658;</button>
+				<img v-bind:src="availableParts.torsos[ currentTorso ].src" title="Torso"/>
+				<button v-on:click="prevTorso()" class="prev-selector">&#9668;</button>
+				<button v-on:click="nextTorso()" class="next-selector">&#9658;</button>
 			</div>
 			<div class="right part">
-				<img v-bind:src="availableParts.arms[0].src" title="left arm"/>
-				<button class="prev-selector">&#9650;</button>
-				<button class="next-selector">&#9660;</button>
+				<img v-bind:src="availableParts.arms[ currentArmR ].src" title="Right arm"/>
+				<button v-on:click="prevArmR()" class="prev-selector">&#9650;</button>
+				<button v-on:click="nextArmR()" class="next-selector">&#9660;</button>
 			</div>
 		</div>
 		<div class="bottom-row">
 			<div class="bottom part">
-				<img v-bind:src="availableParts.bases[0].src" title="left arm"/>
-				<button class="prev-selector">&#9668;</button>
-				<button class="next-selector">&#9658;</button>
+				<img v-bind:src="availableParts.bases[ currentBase ].src" title="Base"/>
+				<button v-on:click="prevBase()" class="prev-selector">&#9668;</button>
+				<button v-on:click="nextBase()" class="next-selector">&#9658;</button>
 			</div>
 		</div>
 	</div>
@@ -39,12 +39,73 @@
 	//bring in robot part resource data
 	import availableParts from "../data/parts";
 
+	function getNextIdx(idx, length) {
+		console.log("getNextIdx()", idx, length );
+		return ++idx % length;
+	}//getNextIdx
+
+	function getPrevIdx(idx, length) {
+		console.log("getPrevIdx()", idx, length );
+		return --idx > -1 ? idx : length - 1;
+	}//getPrevIdx
+
 	export default {
 		name: "RobotBuilder"
 		,data() {
 			return {
 				availableParts
+				,currentHead: 0
+				,currentArmL: 0
+				,currentTorso: 0
+				,currentArmR: 0
+				,currentBase: 0
 			};
+		}
+		,methods: {
+			nextHead() {
+				this.currentHead = getNextIdx( this.currentHead, this.availableParts.heads.length );
+			   console.log("nextHead()", this.currentHead );
+			}//nextHead
+			,prevHead() {
+				this.currentHead = getPrevIdx( this.currentHead, this.availableParts.heads.length );
+			   console.log("prevHead()", this.currentHead );
+			}//prevHead
+
+			,nextArmL() {
+				this.currentArmL = getNextIdx( this.currentArmL, this.availableParts.arms.length );
+			   console.log("nextArmL()", this.currentArmL );
+			}//nextArmL
+			,prevArmL() {
+				this.currentArmL = getPrevIdx( this.currentArmL, this.availableParts.heads.length );
+			   console.log("prevArmL()", this.currentArmL );
+			}//prevArmL
+
+			,nextTorso() {
+				this.currentTorso = getNextIdx( this.currentTorso, this.availableParts.torsos.length );
+			   console.log("nextTorso()", this.currentTorso );
+			}//nextTorso
+			,prevTorso() {
+				this.currentTorso = getPrevIdx( this.currentTorso, this.availableParts.torsos.length );
+			   console.log("prevTorso()", this.currentTorso );
+			}//prevTorso
+
+			,nextArmR() {
+				this.currentArmR = getNextIdx( this.currentArmR, this.availableParts.arms.length );
+			   console.log("nextArmR()", this.currentArmR );
+			}//nextArmR
+			,prevArmR() {
+				this.currentArmR = getPrevIdx( this.currentArmR, this.availableParts.arms.length );
+			   console.log("prevArmR()", this.currentArmR );
+			}//prevArmR
+
+			,nextBase() {
+				this.currentBase = getNextIdx( this.currentBase, this.availableParts.bases.length );
+			   console.log("nextBase()", this.currentBase );
+			}//nextBase
+			,prevBase() {
+				this.currentBase = getPrevIdx( this.currentBase, this.availableParts.bases.length );
+			   console.log("prevHead()", this.currentBase );
+			}//prevHead
 		}
 	};
 </script>
