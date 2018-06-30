@@ -2,6 +2,11 @@
 	<div>
 		<div class="top-row">
 			<div class="top part">
+				<!--<div v-once class="robot-name">-->
+				<!--above would only parse once, then remove binding to free binding-->
+				<div class="robot-name">
+					{{ selectedRobot.head.title }}
+				</div>
 				<img :src="selectedRobot.head.src" title="Head"/>
 				<button @click="prevHead()" class="prev-selector">&#9668;</button>
 				<button @click="nextHead()" class="next-selector">&#9658;</button>
@@ -210,5 +215,10 @@
 	.right .next-selector {
 		right: -3px;
 	}
-
+	.robot-name{
+		position: absolute;
+		top: -25px;
+		text-align: center;
+		width: 100%;
+	}
 </style>
