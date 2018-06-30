@@ -36,9 +36,17 @@
 </template>
 
 <script>
-		export default {
-			name: "RobotBuilder"
-		};
+	//bring in robot part resource data
+	import availableParts from "../data/parts";
+
+	export default {
+		name: "RobotBuilder"
+		,data() {
+			return {
+				availableParts
+			};
+		}
+	};
 </script>
 
 <style>
