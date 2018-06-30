@@ -164,7 +164,7 @@
 	};
 </script>
 
-<style>
+<style scoped>
 	.content{
 		/*used to allow abs positioning with component instance*/
 		position: relative;

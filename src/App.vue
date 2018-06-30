@@ -30,12 +30,16 @@ export default {
   }
 };
 </script>
-
 <style>
+/*global style block*/
 body {
 	background-color: #777;
 	background-attachment: fixed;
 }
+</style>
+
+<style scoped>
+/*"app" specific/scoped style block*/
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
 }
