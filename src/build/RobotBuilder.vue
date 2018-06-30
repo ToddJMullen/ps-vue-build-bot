@@ -1,11 +1,11 @@
 <template>
-	<div class="content">
+	<div class="child-comp-root content">
 		<button class="btnAddToCart" @click="addToCart()" >Add To Cart</button>
 		<div class="top-row">
 			<div class="top part">
 				<!--<div v-once class="robot-name">-->
 				<!--above would only parse once, then remove binding to free binding-->
-				<div class="robot-name">
+				<div class="deep-child-elem robot-name">
 					{{ selectedRobot.head.title }}
 					<span v-if="selectedRobot.head.onSale" class="sale">Sale!</span>
 					<!--^^^^ removes element from DOM-->

@@ -13,7 +13,7 @@
 	  </header>
     <main>
 		<!--<HomePage />-->
-		<RobotBuilder />
+		<RobotBuilder id="robotBuilder" />
 	</main>
   </div>
 </template>
@@ -43,6 +43,38 @@ body {
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
 }
+RobotBuilder{
+	/* does not work to style the instance */
+	background-color: darkslategray;
+}
+#robotBuilder{
+	/*does work like normal*/
+	/*background-color: lightcyan;*/
+}
+.child-comp-root{
+	/*target child component *root* elements can be styled */
+	border: 1px inset rgba(0,133,0,.3);
+	padding: 2px;
+}
+.deep-child-elem{
+	/* "normal" nested child styling will NOT work bc these styles are scoped*/
+	font-style: oblique;
+	color:blue;
+}
+.child-comp-root .deep-child-elem{
+	/* also will NOT work */
+	font-style: oblique;
+	color:purple;
+}
+.child-comp-root >>> .deep-child-elem{
+	/* WILL work using Vue syntax to target a nested element */
+	/*will also affect all nested component's components*/
+/*.child-comp-root /deep/ .deep-child-elem{*/
+	/* ^^^^^ alternate syntax in case >>> doesn't work with preprocessor being used */
+	font-style: oblique;
+	font-weight: bold;
+}
+
 main{
 	margin: 0 auto;
 	padding: 30px;
