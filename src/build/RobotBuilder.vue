@@ -3,7 +3,7 @@
 		<button class="btnAddToCart" @click="addToCart()" >Add To Cart</button>
 		<div class="top-row">
 			<div class="top part" :style="headBorderStyle"
-				 :class="{'sale-border': selectedRobot.head.onSale,'is-odd': currentHead % 2 == 1 }">
+				 :class="[computedHeadClasses]">
 				<!--<div v-once class="robot-name">-->
 				<!--above would only parse once, then remove binding to free binding-->
 				<div class="deep-child-elem robot-name">
@@ -106,6 +106,13 @@
 //					border: this.selectedRobot.head.onSale ? "2px outset #0f0" : "1px solid #300"
 				}
 			}//headBorderStyle
+			,computedHeadClasses() {
+				console.log("computedHeadClasses()",  );
+				let classAry = []
+				classAry.push( this.selectedRobot.head.onSale ? "sale-border" : "not-on-sale" )
+				classAry.push( this.currentHead % 2 == 1 ? "is-odd" : "is-even" )
+				return classAry;
+			}//computedHeadClasses
 		}//computed
 		,methods: {
 			addToCart() {
@@ -296,6 +303,9 @@
 		border: 3px solid red;
 	}
 	.is-odd{
-		transform: rotate(20deg)
+		transform: rotate(20deg);
+	}
+	.is-odd:before{
+		content: "(odd)"
 	}
 </style>
