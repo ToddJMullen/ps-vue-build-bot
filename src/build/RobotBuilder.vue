@@ -6,6 +6,10 @@
 				<!--above would only parse once, then remove binding to free binding-->
 				<div class="robot-name">
 					{{ selectedRobot.head.title }}
+					<span v-if="selectedRobot.head.onSale" class="sale">Sale!</span>
+					<!--^^^^ removes element from DOM-->
+					<span v-show="selectedRobot.head.onSale" class="sale">Sale!</span>
+					<!--^^^^ show/hide element in DOM-->
 				</div>
 				<img :src="selectedRobot.head.src" title="Head"/>
 				<button @click="prevHead()" class="prev-selector">&#9668;</button>
@@ -220,5 +224,10 @@
 		top: -25px;
 		text-align: center;
 		width: 100%;
+	}
+	.sale{
+		font-size: smaller;
+		color: red;
+		font-weight: bold;
 	}
 </style>
