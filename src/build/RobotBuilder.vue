@@ -1,5 +1,6 @@
 <template>
-	<div>
+	<div class="content">
+		<button class="btnAddToCart" @click="addToCart()" >Add To Cart</button>
 		<div class="top-row">
 			<div class="top part">
 				<!--<div v-once class="robot-name">-->
@@ -63,6 +64,7 @@
 		,data() {
 			return {
 				availableParts
+				,cart: []//cart has to be initialized here in order to use change detection
 				,currentHead: 0
 				,currentArmL: 0
 				,currentTorso: 0
@@ -79,10 +81,25 @@
 					,armR: availableParts.arms[ this.currentArmR ]
 					,base: availableParts.bases[ this.currentBase ]
 				}
-			}
-		}
+			}//selectedRobot
+		}//computed
 		,methods: {
-			nextHead() {
+			addToCart() {
+				let bot	= this.selectedRobot
+				,cost		= bot.head.cost
+								+ bot.armL.cost
+								+ bot.torso.cost
+								+ bot.armR.cost
+								+ bot.base.cost
+				//use object assign to create a clone of the robot + the cost property for it's parts
+				,botCopy	= Object.assign({}, bot, {cost})
+				;
+				console.log("addToCart()", botCopy );
+
+				this.cart.push( botCopy );
+
+			}//addToCart
+			,nextHead() {
 				this.currentHead = getNextIdx( this.currentHead, this.availableParts.heads.length );
 			   console.log("nextHead()", this.currentHead );
 			}//nextHead
@@ -126,11 +143,15 @@
 				this.currentBase = getPrevIdx( this.currentBase, this.availableParts.bases.length );
 			   console.log("prevHead()", this.currentBase );
 			}//prevHead
-		}
+		}//methods
 	};
 </script>
 
 <style>
+	.content{
+		/*used to allow abs positioning with component instance*/
+		position: relative;
+	}
 	.part {
 		position: relative;
 		width:165px;
@@ -229,5 +250,13 @@
 		font-size: smaller;
 		color: red;
 		font-weight: bold;
+	}
+	.btnAddToCart{
+		position: absolute;
+		right: 30px;
+		width: 200px;
+		padding: 7px;
+		font-size: 2em;
+		color: #090;
 	}
 </style>
