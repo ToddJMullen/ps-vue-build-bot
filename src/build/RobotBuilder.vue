@@ -2,7 +2,8 @@
 	<div class="child-comp-root content">
 		<button class="btnAddToCart" @click="addToCart()" >Add To Cart</button>
 		<div class="top-row">
-			<div class="top part" :style="headBorderStyle">
+			<div class="top part" :style="headBorderStyle"
+				 :class="{'sale-border': selectedRobot.head.onSale,'is-odd': currentHead % 2 == 1 }">
 				<!--<div v-once class="robot-name">-->
 				<!--above would only parse once, then remove binding to free binding-->
 				<div class="deep-child-elem robot-name">
@@ -102,7 +103,7 @@
 			,headBorderStyle() {
 				console.log("headBorderStyle()");
 				return {
-					border: this.selectedRobot.head.onSale ? "2px outset #0f0" : "1px solid #300"
+//					border: this.selectedRobot.head.onSale ? "2px outset #0f0" : "1px solid #300"
 				}
 			}//headBorderStyle
 		}//computed
@@ -290,5 +291,11 @@
 	td.cost{
 		text-align: right;
 		color: #090;
+	}
+	.sale-border{
+		border: 3px solid red;
+	}
+	.is-odd{
+		transform: rotate(20deg)
 	}
 </style>
