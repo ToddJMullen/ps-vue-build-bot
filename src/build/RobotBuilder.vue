@@ -66,6 +66,7 @@
 <script>
 	// bring in robot part resource data
 	import availableParts from "../data/parts";
+	import hookMixin from "./hook-mixin"
 
 	function getNextIdx(idx, length) {
 		console.log("getNextIdx()", idx, length );
@@ -79,18 +80,9 @@
 
 	export default {
 		name: "RobotBuilder"
-		,beforeCreate(){
-			console.log("beforeCreate() hook");
-		}
-		,created(){
-			console.log("RobotBuilder() hook");
-		}
-		,beforeMount(){
-			console.log("beforeMount() hook")
-		}
-		,mounted(){
-			console.log("mounted() hook;")
-		}
+		,mixins: [
+			hookMixin
+		]
 		,data() {
 			return {
 				availableParts
