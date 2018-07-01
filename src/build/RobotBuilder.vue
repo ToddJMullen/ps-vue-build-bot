@@ -1,6 +1,8 @@
 <template>
 	<div class="child-comp-root content">
+
 		<button class="btnAddToCart" @click="addToCart()" >Add To Cart</button>
+		
 		<div class="top-row">
 			<div class="top part" :style="headBorderStyle"
 				 :class="[computedHeadClasses]">
@@ -42,6 +44,9 @@
 				<button @click="nextBase()" class="next-selector">&#9658;</button>
 			</div>
 		</div>
+
+
+
 		<div>
 			<h1>Cart</h1>
 			<table>
