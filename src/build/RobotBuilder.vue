@@ -64,7 +64,7 @@
 </template>
 
 <script>
-	//bring in robot part resource data
+	// bring in robot part resource data
 	import availableParts from "../data/parts";
 
 	function getNextIdx(idx, length) {
@@ -79,6 +79,18 @@
 
 	export default {
 		name: "RobotBuilder"
+		,beforeCreate(){
+			console.log("beforeCreate() hook");
+		}
+		,created(){
+			console.log("RobotBuilder() hook");
+		}
+		,beforeMount(){
+			console.log("beforeMount() hook")
+		}
+		,mounted(){
+			console.log("mounted() hook;")
+		}
 		,data() {
 			return {
 				availableParts
