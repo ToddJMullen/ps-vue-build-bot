@@ -23,9 +23,22 @@ function getNextValidIndex(index, length) {
 }
 
 export default {
-	props: [//data/name passed to the component in markup/instantiation
-		"parts", "position"
-	]
+	props: {
+		//data/name passed to the component in markup/instantiation
+		parts: {//add validation info
+			type: Array
+			,required: true
+		}
+		,position: {
+			type: String
+			,required: true
+			,validator: function(value){
+				//position can be empty, but would still validate as empty string ""
+				//here we provide custom validation against an explicity list
+				return ["left","right","top","bottom","center"].includes( value );
+			}
+		}
+	}
   ,data() {
     return { selectedPartIndex: 0 };
   },
