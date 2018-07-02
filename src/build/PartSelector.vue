@@ -41,8 +41,11 @@ export default {
 	}
   ,data() {
     return { selectedPartIndex: 0 };
-  },
-  created(){
+  }
+//   ,created(){//called once when created
+// 	  this.emitSelectedPart();
+//   }
+  ,updated(){//lifecycle hook for when data is changed
 	  this.emitSelectedPart();
   }
   ,computed: {
@@ -60,14 +63,14 @@ export default {
         this.selectedPartIndex,
         this.parts.length,
       );
-	  this.emitSelectedPart();
+	//   this.emitSelectedPart();//called bc data changed
     },
     selectPreviousPart() {
       this.selectedPartIndex = getPreviousValidIndex(
         this.selectedPartIndex,
 		this.parts.length,
       );
-	  this.emitSelectedPart();
+	//   this.emitSelectedPart();//replaced with "updated()" lifecycle hook
     },
 
   },
