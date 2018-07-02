@@ -3,6 +3,8 @@
 
 
  <div class="preview">
+	 <!-- <CollapseSect titleClosed="Empty Example" titleOpen="Default Content"></CollapseSect> -->
+	 <CollapseSect titleClosed="Show Preview" titleOpen="Your New Bot">
       <div class="preview-content">
         <div class="top-row">
           <img :src="selectedRobot.head.src"/>
@@ -16,6 +18,7 @@
           <img :src="selectedRobot.base.src"/>
         </div>
       </div>
+	 </CollapseSect>
 		<button class="btnAddToCart" @click="addToCart()" >Add To Cart</button>
 </div>
 
@@ -106,10 +109,11 @@
 	import availableParts from "../data/parts";
 	import hookMixin from "./hook-mixin"
 	import PartSelector from "./PartSelector";
+	import CollapseSect from "../shared/CollapseSect";
 
 	export default {
 		name: "RobotBuilder"
-		,components: {PartSelector}
+		,components: {PartSelector, CollapseSect}
 		,mixins: [
 			hookMixin
 		]
