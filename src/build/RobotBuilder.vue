@@ -16,6 +16,7 @@
 					<!--^^^^ show/hide element in DOM-->
 				</div>
 				<PartSelector :parts="availableParts.heads"
+								@partSelected=" head => selectedRobot.head = head"
 								position="top" />
 				<!-- <img :src="selectedRobot.head.src" title="Head"/>
 				<button @click="prevHead()" class="prev-selector">&#9668;</button>
@@ -24,10 +25,13 @@
 		</div>
 		<div class="middle-row">
 			<PartSelector :parts="availableParts.arms"
+							@partSelected=" arm => selectedRobot.armL = arm"
 							position="left" />
 			<PartSelector :parts="availableParts.torsos"
+							@partSelected=" torso => selectedRobot.torso = torso"
 							position="center" />
 			<PartSelector :parts="availableParts.arms"
+							@partSelected=" arm => selectedRobot.base = arm"
 							position="right" />
 			<!-- <div class="left part">
 				<img :src="selectedRobot.armL.src" title="Left arm"/>
@@ -47,6 +51,7 @@
 		</div>
 		<div class="bottom-row">
 			<PartSelector :parts="availableParts.bases"
+							@partSelected=" base => selectedRobot.base = base"
 							position="bottom" />
 			<!-- <div class="bottom part">
 				<img :src="selectedRobot.base.src" title="Base"/>
