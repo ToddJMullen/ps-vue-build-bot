@@ -2,7 +2,7 @@
 	<div class="child-comp-root content">
 
 		<button class="btnAddToCart" @click="addToCart()" >Add To Cart</button>
-		
+
 		<div class="top-row">
 			<div class="top part" :style="headBorderStyle"
 				 :class="[computedHeadClasses]">
@@ -15,13 +15,17 @@
 					<span v-show="selectedRobot.head.onSale" class="sale">Sale!</span>
 					<!--^^^^ show/hide element in DOM-->
 				</div>
-				<img :src="selectedRobot.head.src" title="Head"/>
+				<PartSelector />
+				<!-- <img :src="selectedRobot.head.src" title="Head"/>
 				<button @click="prevHead()" class="prev-selector">&#9668;</button>
-				<button @click="nextHead()" class="next-selector">&#9658;</button>
+				<button @click="nextHead()" class="next-selector">&#9658;</button> -->
 			</div>
 		</div>
 		<div class="middle-row">
-			<div class="left part">
+			<PartSelector />
+			<PartSelector />
+			<PartSelector />
+			<!-- <div class="left part">
 				<img :src="selectedRobot.armL.src" title="Left arm"/>
 				<button @click="prevArmL()" class="prev-selector">&#9650;</button>
 				<button @click="nextArmL()" class="next-selector">&#9660;</button>
@@ -35,14 +39,15 @@
 				<img :src="selectedRobot.armR.src" title="Right arm"/>
 				<button @click="prevArmR()" class="prev-selector">&#9650;</button>
 				<button @click="nextArmR()" class="next-selector">&#9660;</button>
-			</div>
+			</div> -->
 		</div>
 		<div class="bottom-row">
-			<div class="bottom part">
+			<PartSelector />
+			<!-- <div class="bottom part">
 				<img :src="selectedRobot.base.src" title="Base"/>
 				<button @click="prevBase()" class="prev-selector">&#9668;</button>
 				<button @click="nextBase()" class="next-selector">&#9658;</button>
-			</div>
+			</div> -->
 		</div>
 
 
@@ -72,19 +77,11 @@
 	// bring in robot part resource data
 	import availableParts from "../data/parts";
 	import hookMixin from "./hook-mixin"
-
-	function getNextIdx(idx, length) {
-		console.log("getNextIdx()", idx, length );
-		return ++idx % length;
-	}//getNextIdx
-
-	function getPrevIdx(idx, length) {
-		console.log("getPrevIdx()", idx, length );
-		return --idx > -1 ? idx : length - 1;
-	}//getPrevIdx
+	import PartSelector from "./PartSelector";
 
 	export default {
 		name: "RobotBuilder"
+		,components: {PartSelector}
 		,mixins: [
 			hookMixin
 		]
@@ -92,29 +89,24 @@
 			return {
 				availableParts
 				,cart: []//cart has to be initialized here in order to use change detection
-				,currentHead: 0
-				,currentArmL: 0
-				,currentTorso: 0
-				,currentArmR: 0
-				,currentBase: 0
+				,selectedRobot: {
+					head: {}
+					,armL: {}
+					,torso: {}
+					,armR: {}
+					,base: {}
+				}//selectedRobot
 			};
 		}
 		,computed: {
-			selectedRobot(){
-				return {
-					head: availableParts.heads[ this.currentHead ]
-					,armL: availableParts.arms[ this.currentArmL ]
-					,torso: availableParts.torsos[ this.currentTorso ]
-					,armR: availableParts.arms[ this.currentArmR ]
-					,base: availableParts.bases[ this.currentBase ]
-				}
-			}//selectedRobot
-			,headBorderStyle() {
+
+			headBorderStyle() {
 				console.log("headBorderStyle()");
 				return {
 //					border: this.selectedRobot.head.onSale ? "2px outset #0f0" : "1px solid #300"
 				}
 			}//headBorderStyle
+
 			,computedHeadClasses() {
 				console.log("computedHeadClasses()",  );
 				let classAry = []
@@ -139,50 +131,7 @@
 				this.cart.push( botCopy );
 
 			}//addToCart
-			,nextHead() {
-				this.currentHead = getNextIdx( this.currentHead, this.availableParts.heads.length );
-			   console.log("nextHead()", this.currentHead );
-			}//nextHead
-			,prevHead() {
-				this.currentHead = getPrevIdx( this.currentHead, this.availableParts.heads.length );
-			   console.log("prevHead()", this.currentHead );
-			}//prevHead
 
-			,nextArmL() {
-				this.currentArmL = getNextIdx( this.currentArmL, this.availableParts.arms.length );
-			   console.log("nextArmL()", this.currentArmL );
-			}//nextArmL
-			,prevArmL() {
-				this.currentArmL = getPrevIdx( this.currentArmL, this.availableParts.heads.length );
-			   console.log("prevArmL()", this.currentArmL );
-			}//prevArmL
-
-			,nextTorso() {
-				this.currentTorso = getNextIdx( this.currentTorso, this.availableParts.torsos.length );
-			   console.log("nextTorso()", this.currentTorso );
-			}//nextTorso
-			,prevTorso() {
-				this.currentTorso = getPrevIdx( this.currentTorso, this.availableParts.torsos.length );
-			   console.log("prevTorso()", this.currentTorso );
-			}//prevTorso
-
-			,nextArmR() {
-				this.currentArmR = getNextIdx( this.currentArmR, this.availableParts.arms.length );
-			   console.log("nextArmR()", this.currentArmR );
-			}//nextArmR
-			,prevArmR() {
-				this.currentArmR = getPrevIdx( this.currentArmR, this.availableParts.arms.length );
-			   console.log("prevArmR()", this.currentArmR );
-			}//prevArmR
-
-			,nextBase() {
-				this.currentBase = getNextIdx( this.currentBase, this.availableParts.bases.length );
-			   console.log("nextBase()", this.currentBase );
-			}//nextBase
-			,prevBase() {
-				this.currentBase = getPrevIdx( this.currentBase, this.availableParts.bases.length );
-			   console.log("prevHead()", this.currentBase );
-			}//prevHead
 		}//methods
 	};
 </script>
