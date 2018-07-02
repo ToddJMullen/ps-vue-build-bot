@@ -42,7 +42,10 @@ export default {
   ,data() {
     return { selectedPartIndex: 0 };
   },
-  computed: {
+  created(){
+	  this.$emit("partSelected", this.selectedPart );
+  }
+  ,computed: {
     selectedPart() {
       return this.parts[this.selectedPartIndex];
     },
