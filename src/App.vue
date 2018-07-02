@@ -13,20 +13,21 @@
 	  </header>
     <main>
 		<!--<HomePage />-->
-		<RobotBuilder id="robotBuilder" />
+		<!-- <RobotBuilder id="robotBuilder" /> -->
+		<router-view />
 	</main>
   </div>
 </template>
 
 <script>
 //import HomePage from './home/HomePage.vue';
-import RobotBuilder from "./build/RobotBuilder.vue";
+// import RobotBuilder from "./build/RobotBuilder.vue";
 
 export default {
   name: 'app',//ref to div#app above
   components: {
 //    HomePage
-	RobotBuilder
+	// RobotBuilder
   }
 };
 </script>
