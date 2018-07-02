@@ -43,7 +43,7 @@ export default {
     return { selectedPartIndex: 0 };
   },
   created(){
-	  this.$emit("partSelected", this.selectedPart );
+	  this.emitSelectedPart();
   }
   ,computed: {
     selectedPart() {
@@ -51,19 +51,23 @@ export default {
     },
   },
   methods: {
-    selectNextPart() {
+	  emitSelectedPart() {
+		  console.log("emitSelectedPart()", this.selectedPart );
+		  this.$emit("selectedPart", this.selectedPart );
+	  }
+    ,selectNextPart() {
       this.selectedPartIndex = getNextValidIndex(
         this.selectedPartIndex,
         this.parts.length,
       );
-		this.$emit("partSelected", this.selectedPart );
+	  this.emitSelectedPart();
     },
     selectPreviousPart() {
       this.selectedPartIndex = getPreviousValidIndex(
         this.selectedPartIndex,
 		this.parts.length,
       );
-		this.$emit("partSelected", this.selectedPart );
+	  this.emitSelectedPart();
     },
 
   },
