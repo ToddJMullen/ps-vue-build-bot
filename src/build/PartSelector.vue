@@ -42,9 +42,9 @@ export default {
   ,data() {
     return { selectedPartIndex: 0 };
   }
-//   ,created(){//called once when created
-// 	  this.emitSelectedPart();
-//   }
+  ,created(){//called once when created
+	  this.emitSelectedPart();
+  }
   ,updated(){//lifecycle hook for when data is changed
 	  this.emitSelectedPart();
   }
