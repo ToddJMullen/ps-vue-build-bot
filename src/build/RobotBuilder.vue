@@ -31,7 +31,7 @@
 							@partSelected=" torso => selectedRobot.torso = torso"
 							position="center" />
 			<PartSelector :parts="availableParts.arms"
-							@partSelected=" arm => selectedRobot.base = arm"
+							@partSelected=" arm => selectedRobot.armR = arm"
 							position="right" />
 			<!-- <div class="left part">
 				<img :src="selectedRobot.armL.src" title="Left arm"/>
