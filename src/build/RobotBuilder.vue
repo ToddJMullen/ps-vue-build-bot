@@ -15,16 +15,20 @@
 					<span v-show="selectedRobot.head.onSale" class="sale">Sale!</span>
 					<!--^^^^ show/hide element in DOM-->
 				</div>
-				<PartSelector />
+				<PartSelector :parts="availableParts.heads"
+								position="top" />
 				<!-- <img :src="selectedRobot.head.src" title="Head"/>
 				<button @click="prevHead()" class="prev-selector">&#9668;</button>
 				<button @click="nextHead()" class="next-selector">&#9658;</button> -->
 			</div>
 		</div>
 		<div class="middle-row">
-			<PartSelector />
-			<PartSelector />
-			<PartSelector />
+			<PartSelector :parts="availableParts.arms"
+							position="left" />
+			<PartSelector :parts="availableParts.torsos"
+							position="center" />
+			<PartSelector :parts="availableParts.arms"
+							position="right" />
 			<!-- <div class="left part">
 				<img :src="selectedRobot.armL.src" title="Left arm"/>
 				<button @click="prevArmL()" class="prev-selector">&#9650;</button>
@@ -42,7 +46,8 @@
 			</div> -->
 		</div>
 		<div class="bottom-row">
-			<PartSelector />
+			<PartSelector :parts="availableParts.bases"
+							position="bottom" />
 			<!-- <div class="bottom part">
 				<img :src="selectedRobot.base.src" title="Base"/>
 				<button @click="prevBase()" class="prev-selector">&#9668;</button>
