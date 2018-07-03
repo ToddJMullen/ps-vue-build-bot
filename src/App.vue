@@ -4,9 +4,15 @@
 		  <nav>
 			  <ul>
 				  <li class="nav-item">
-					  <img src="./assets/build-a-bot-logo.png" class="logo"
-						   alt="Build-A-Bot">
-					  Build-A-Bot
+					  <router-link :to="{name:'Home'}" class="nav-link">
+							<img src="./assets/build-a-bot-logo.png" class="logo"
+						   alt="Build-A-Bot"> Build-A-Bot
+						</router-link>
+				  </li>
+				  <li class="nav-item">
+					  <router-link :to="{name:'Build'}" class="nav-link">
+							Build
+						</router-link>
 				  </li>
 			  </ul>
 		  </nav>
@@ -97,6 +103,14 @@ ul {
   padding: 5px 10px;
   font-size: 22px;
   border-right: 1px solid #bbb;
+}
+.nav-link{
+	text-decoration: none;
+	color: inherit;
+}
+.router-link-active{
+	/* ^^^^^ Auto class for Vue router */
+	color: white;
 }
 .logo {
   vertical-align: middle;

@@ -5,7 +5,7 @@
 		  	class="robot">
 	  </div>
 	  <div class="get-started">
-		  <a href="">Get Started</a> Building you First Robot
+			<router-link to="/build">Get Started</router-link> Building you First Robot
 	  </div>
   </div>
 
