@@ -5,12 +5,14 @@
 			  <ul>
 				  <li class="nav-item">
 					  <router-link :to="{name:'Home'}" class="nav-link" exact >
+							 <!-- active-class="you-are-here" << custom active css rule is being ignored by browser -->
 							<img src="./assets/build-a-bot-logo.png" class="logo" alt="Build-A-Bot" >
 							Build-A-Bot
 						</router-link>
 				  </li>
 				  <li class="nav-item">
 					  <router-link :to="{name:'Build'}" class="nav-link" exact >
+							 <!-- active-class="you-are-here" << css rules not applied when used -->
 							Build
 						</router-link>
 				  </li>
@@ -108,7 +110,9 @@ ul {
 	text-decoration: none;
 	color: inherit;
 }
-.router-link-active{
+/* ^^^ custom active class */
+.you-are-here
+,.router-link-active{
 	/* ^^^^^ Auto class for Vue router */
 	color: white;
 }
