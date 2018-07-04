@@ -28,7 +28,12 @@
 
 <script>
 export default {
-  name: 'Cart',
+  name: 'ShoppingCart'
+  ,computed: {
+	  cart(){//define a local cart property/reference
+		  return this.$store.state.cart;
+	  }
+  }
 };
 </script>
 
