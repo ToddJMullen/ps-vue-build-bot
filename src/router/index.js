@@ -15,7 +15,8 @@ import SidebarBuild from "../sidebars/SidebarBuild";
 Vue.use(Router);
 
 export default new Router({
-	routes: [
+	mode: "history"//requires server config to prevent trying to serve virtual app paths
+	,routes: [
 		{path: "/"
 			,name: "Home"
 			,components: {
