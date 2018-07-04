@@ -15,7 +15,7 @@ import parts from "../data/parts";
 export default {
 	name: "PartInfo"
 	// ,props: ["partType","id"]//markup input attributes
-	,props: {//markup input attributes
+	,props: {//markup input/incoming attributes
 		"partType": {type: String}
 		,"id": {
 			type: [Number, String]

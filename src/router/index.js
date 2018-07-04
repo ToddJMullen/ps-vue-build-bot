@@ -57,6 +57,13 @@ export default new Router({
 			,name: "Parts"
 			,component: PartInfo
 			,props: true
+			,beforeEnter( to, from, next ){//add enter guard before navigation
+				const isValidId = !isNaN(+to.params.id) && +to.params.id != 0;
+				if( !isValidId ){
+					console.error("Invalid ID in path param:", +to.params.id );
+				}
+				next( isValidId );//true navigates, false doesn't
+			}
 		}
 	]
 })
