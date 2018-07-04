@@ -9,7 +9,10 @@ module.exports = {
   ],
   rules: {
     'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
-    'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off'
+    'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+    "no-mixed-spaces-and-tabs": [0],//stop lint warnings
+    "no-tabs": 0//stop lint warnings about tabs
+    ,"comma-dangle": 0
   },
   parserOptions: {
     parser: 'babel-eslint'
