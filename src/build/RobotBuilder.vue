@@ -114,6 +114,23 @@
 	export default {
 		name: "RobotBuilder"
 		,components: {PartSelector, CollapseSect}
+		,beforeRouteLeave(to, from, next){
+			if( this.addedToCart ){
+				next(true);
+			}
+			else {
+				const rsp = confirm("You have not added your bot to the cart!"
+									+ " Are you sure you want to leave?");
+				next( rsp );
+			}
+		}
+		,beforeRouteEnter(to, from, next){
+			console.log("RobotBuilder, beforeRouteEnter()");
+			next(true);//once hook is added, this has to be used or it will halt execution
+			//notice 'Route' in the hook method name
+			//in component the enter guard hook is beforeRouteEnter()
+			//the route hook method is beforeEnter()
+		}
 		,mixins: [
 			hookMixin
 		]
@@ -121,6 +138,7 @@
 			return {
 				availableParts
 				,cart: []//cart has to be initialized here in order to use change detection
+				,addedToCart: false//use for exit guard
 				,selectedRobot: {
 					head: {}
 					,armL: {}
@@ -131,7 +149,6 @@
 			};
 		}
 		,computed: {
-
 			headBorderStyle() {
 				console.log("headBorderStyle()");
 				return {
@@ -161,6 +178,7 @@
 				console.log("addToCart()", botCopy );
 
 				this.cart.push( botCopy );
+				this.addedToCart = true;
 
 			}//addToCart
 
