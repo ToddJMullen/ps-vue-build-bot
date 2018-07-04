@@ -57,7 +57,13 @@ export default {
   methods: {
     showPartInfo(){
       console.log("showPartInfo()");
-      this.$router.push( "/parts" );
+      this.$router.push( {
+          name: "Parts"
+          , params: {
+              id: this.selectedPart.id
+              ,partType: this.selectedPart.type
+          }
+      });
     }
 	  ,emitSelectedPart() {
 		  console.log("emitSelectedPart()", this.selectedPart );
