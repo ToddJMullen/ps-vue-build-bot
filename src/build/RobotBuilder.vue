@@ -177,7 +177,8 @@
 				;
 				console.log("addToCart()", botCopy );
 
-				this.cart.push( botCopy );
+				// this.cart.push( botCopy );
+				this.$store.commit( "addBotToCart", botCopy );
 				this.addedToCart = true;
 
 			}//addToCart
