@@ -18,7 +18,10 @@
 				  </li>
 				  <li class="nav-item cart">
 					  <router-link :to="{name:'Cart'}" class="nav-link" exact >
-							View Cart
+							View Cart 
+							<div class="cart-items">
+								{{cart.length}}
+							</div>
 						</router-link>
 				  </li>
 			  </ul>
@@ -43,10 +46,16 @@
 // import RobotBuilder from "./build/RobotBuilder.vue";
 
 export default {
-  name: 'app',//ref to div#app above
-  components: {
-//    HomePage
+	name: 'app'//ref to div#app above
+	,computed: {
+		cart(){
+			return this.$store.state.cart;
+		} 
+	}
+	,components: {
+		//    HomePage
 	// RobotBuilder
+		//^^^ replaced with routing between components (here for initial dev)
   }
 };
 </script>
@@ -145,5 +154,15 @@ ul {
 	background-color: #aaa;
 	width: 100px;
 	min-height: 300px;
+}
+.cart-items{
+	position: absolute;
+	top: -5px; right: -11px;
+	font-size: 18px;
+	width: 22px;
+	text-align: center;
+	display: inline-block;
+	border-radius: 100px;
+	background-color: mediumseagreen;
 }
 </style>
