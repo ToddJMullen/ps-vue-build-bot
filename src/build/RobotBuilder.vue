@@ -83,7 +83,7 @@
 
 
 
-		<div>
+		<!-- <div>
 			<h1>Cart</h1>
 			<table>
 				<thead>
@@ -93,14 +93,14 @@
 					</tr>
 				</thead>
 				<tbody>
-					<!--note: For performance, do not use v-if and v-for on same element. Filter elements instead-->
+					note: For performance, do not use v-if and v-for on same element. Filter elements instead
 					<tr v-for="(bot, index) in cart" :key="index">
 						<td>{{bot.head.title}}</td>
 						<td class="cost">{{bot.cost}}</td>
 					</tr>
 				</tbody>
 			</table>
-		</div>
+		</div> -->
 	</div>
 </template>
 
@@ -299,7 +299,7 @@
 		font-size: 2em;
 		color: #090;
 	}
-	td,th{
+	/* td,th{
 		text-align: left;
 		padding: 5px;
 		padding-left: 20px;
@@ -307,7 +307,7 @@
 	td.cost{
 		text-align: right;
 		color: #090;
-	}
+	} */
 	.sale-border{
 		border: 3px solid red;
 	}
