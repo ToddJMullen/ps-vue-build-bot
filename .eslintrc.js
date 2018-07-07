@@ -14,6 +14,10 @@ module.exports = {
     ,"no-tabs": 0//stop lint warnings about tabs
     ,"comma-dangle": 0
     ,"no-param-reassign": 0
+    ,"comma-spacing": 0
+    ,"comma-style": 0
+    ,"indent": 0
+    ,"no-multiple-empty-lines": 0
   },
   parserOptions: {
     parser: 'babel-eslint'
