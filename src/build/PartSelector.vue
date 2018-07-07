@@ -50,10 +50,13 @@ export default {
 		}
 	}
   ,data() {
-    return { selectedPartIndex: 0 };
+    return {
+      selectedPartIndex: 0
+      ,changed: false
+    };
   }
   ,created(){//called once when created
-	  this.emitSelectedPart();
+	  this.emitSelectedPart();//was triggering isDirty in RoboBuilder, don't remember if I put this, or he said to
   }
   ,updated(){//lifecycle hook for when data is changed
 	  this.emitSelectedPart();
@@ -75,10 +78,11 @@ export default {
       });
     }
 	  ,emitSelectedPart() {
-		  console.log("emitSelectedPart()", this.selectedPart );
-		  this.$emit("selectedPart", this.selectedPart );
+		  console.log("emitSelectedPart()", this.selectedPart, this.changed );
+		  this.$emit("selectedPart", this.selectedPart, this.changed );
 	  }
     ,selectNextPart() {
+      this.changed = true;
       this.selectedPartIndex = getNextValidIndex(
         this.selectedPartIndex,
         this.parts.length,
@@ -86,9 +90,10 @@ export default {
 	//   this.emitSelectedPart();//called bc data changed
     },
     selectPreviousPart() {
+      this.changed = true;
       this.selectedPartIndex = getPreviousValidIndex(
         this.selectedPartIndex,
-		this.parts.length,
+	    	this.parts.length,
       );
 	//   this.emitSelectedPart();//replaced with "updated()" lifecycle hook
     },
