@@ -17,9 +17,9 @@ import getPartsMixin from "./getParts.mixin";
 export default {
   name: 'RobotHeads'
   ,mixins: [getPartsMixin]
-  ,data() {
-    // return { heads: parts.heads };
-  }
+  // ,data() {
+  //   // return { heads: parts.heads };
+  // }
   // ,computed(){
   //   return {heads: parts.heads}
   // }

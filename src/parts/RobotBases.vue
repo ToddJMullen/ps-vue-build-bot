@@ -18,9 +18,9 @@ import getPartsMixin from "./getParts.mixin";
 export default {
   name: 'RobotBases',
   mixins: [getPartsMixin]
-  ,data() {
-    //return { bases: parts.bases };
-  }
+  // ,data() {
+  //   //return { bases: parts.bases };
+  // }
   // ,computed() {
   //   return {bases: parts.bases};
   // }

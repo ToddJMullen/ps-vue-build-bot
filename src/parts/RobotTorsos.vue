@@ -18,9 +18,9 @@ import getPartsMixin from "./getParts.mixin";
 export default {
   name: 'RobotTorsos'
   ,mixins: [getPartsMixin]
-  ,data() {
-    // return { torsos: parts.torsos };
-  }
+  // ,data() {
+  //   // return { torsos: parts.torsos };
+  // }
   // ,computed(){//not needed bc parts is supplied via the mixin
     // return {torsos: parts.torsos};
   // }
