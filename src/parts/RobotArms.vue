@@ -11,11 +11,19 @@
 </template>
 
 <script>
-import parts from '../data/parts';
+// import parts from '../data/parts';//replace with store reference
+import getPartsMixin from "./getParts.mixin";
+
 export default {
-  name: 'RobotArms',
-  data() {
-    return { arms: parts.arms };
-  },
+  name: 'RobotArms'
+  ,mixins: [getPartsMixin]
+  ,data() {
+    // return { arms: parts.arms };
+  }
+  // ,computed(){
+  //   return {
+  //     arms: parts.arms
+  //   };
+  // }
 };
 </script>

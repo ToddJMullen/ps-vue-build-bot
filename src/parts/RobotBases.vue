@@ -12,11 +12,17 @@
 </template>
 
 <script>
-import parts from '../data/parts';
+// import parts from '../data/parts';
+import getPartsMixin from "./getParts.mixin";
+
 export default {
   name: 'RobotBases',
-  data() {
-    return { bases: parts.bases };
-  },
+  mixins: [getPartsMixin]
+  ,data() {
+    //return { bases: parts.bases };
+  }
+  // ,computed() {
+  //   return {bases: parts.bases};
+  // }
 };
 </script>
