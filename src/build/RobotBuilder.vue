@@ -1,5 +1,6 @@
 <template>
-	<div class="child-comp-root content">
+	<div v-if="availableParts"
+	 	class="child-comp-root content">
 
 
  <div class="preview">
@@ -37,7 +38,7 @@
 					<!--^^^^ show/hide element in DOM-->
 				</div>
 				<PartSelector :parts="availableParts.heads"
-								@selectedPart=" head => selectedRobot.head = head"
+								@selectedPart="head => selectedRobot.head = head"
 								position="top" />
 				<!-- <img :src="selectedRobot.head.src" title="Head"/>
 				<button @click="prevHead()" class="prev-selector">&#9668;</button>
@@ -72,7 +73,7 @@
 		</div>
 		<div class="bottom-row">
 			<PartSelector :parts="availableParts.bases"
-							@selectedPart=" base => selectedRobot.base = base"
+							@selectedPart=" (base, markDirty) => {selectedRobot.base = base; isDirty = markDirty;}"
 							position="bottom" />
 			<!-- <div class="bottom part">
 				<img :src="selectedRobot.base.src" title="Base"/>
@@ -106,16 +107,20 @@
 
 <script>
 	// bring in robot part resource data
-	import availableParts from "../data/parts";
+	// import availableParts from "../data/parts";//replaced with api call
 	import hookMixin from "./hook-mixin"
 	import PartSelector from "./PartSelector";
 	import CollapseSect from "../shared/CollapseSect";
 
 	export default {
 		name: "RobotBuilder"
+		,created(){
+			console.log("created() calling to get parts...");
+			this.$store.dispatch("getParts");
+		}
 		,components: {PartSelector, CollapseSect}
 		,beforeRouteLeave(to, from, next){
-			if( this.addedToCart ){
+			if( !this.isDirty || this.addedToCart ){
 				next(true);
 			}
 			else {
@@ -136,9 +141,10 @@
 		]
 		,data() {
 			return {
-				availableParts
-				,cart: []//cart has to be initialized here in order to use change detection
+				//availableParts//replaced static dev value with computed property
+				cart: []//cart has to be initialized here in order to use change detection
 				,addedToCart: false//use for exit guard
+				,isDirty: false
 				,selectedRobot: {
 					head: {}
 					,armL: {}
@@ -155,6 +161,11 @@
 //					border: this.selectedRobot.head.onSale ? "2px outset #0f0" : "1px solid #300"
 				}
 			}//headBorderStyle
+
+			,availableParts(){
+				console.log("availableParts() returning:", this.$store.state.parts );
+				return this.$store.state.parts;
+			}
 
 			,computedHeadClasses() {
 				console.log("computedHeadClasses()",  );
@@ -182,6 +193,12 @@
 				this.addedToCart = true;
 
 			}//addToCart
+
+			// ,onPartSelected( botTarget, part ){//doesn't work as is
+			// 	console.log("onPartSelected() adding:", part, ", to:", botTarget );
+			// 	botTarget = part;
+			// 	this.isDirty = true;
+			// }
 
 		}//methods
 	};
