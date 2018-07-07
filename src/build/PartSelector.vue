@@ -39,7 +39,7 @@ export default {
 			type: Array
 			,required: true
 		}
-		,position: {
+		,position: { 
 			type: String
 			,required: true
 			,validator: function(value){
@@ -48,7 +48,7 @@ export default {
 				return ["left","right","top","bottom","center"].includes( value );
 			}
 		}
-	}
+	} 
   ,data() {
     return {
       selectedPartIndex: 0

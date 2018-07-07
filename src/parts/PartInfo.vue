@@ -10,10 +10,12 @@
 </template>
 
 <script>
-import parts from "../data/parts";
+// import parts from "../data/parts";
+import getPartsMixin from "./getParts.mixin";
 
 export default {
 	name: "PartInfo"
+	,mixins: [getPartsMixin]
 	// ,props: ["partType","id"]//markup input attributes
 	,props: {//markup input/incoming attributes
 		"partType": {type: String}
@@ -34,7 +36,7 @@ export default {
 			//ES2015, using destructuring
 
 			// return parts[ type ][ id ];//wrong struct?
-			return parts[ partType ].find( part => part.id === +id );
+			return this.parts[ partType ].find( part => part.id === +id );
 		}
 	}
 	,data(){
