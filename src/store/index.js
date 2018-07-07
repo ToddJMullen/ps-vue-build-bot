@@ -14,6 +14,7 @@ export default new Vuex.Store({
 			state.cart.push( bot );
 		}
 		,updateParts( state, parts ){
+			console.log("updateParts() setting parts:", parts );
 			state.parts = parts;
 		}
 	}
@@ -26,6 +27,7 @@ export default new Vuex.Store({
 		getParts({commit}){ //destructure from context input which contains: state, getters, commit, dispatch
 			// axios.get("http://localhost:8081/api/parts");
 			// ^^^^ this will cause usual CORS problem, so we create a Vue proxy to treat as relative
+			console.log("getParts() calling service...")
 			axios.get("/api/parts")
 				.then( parts => commit("updateParts", parts.data ) )
 				.catch( console.error );
