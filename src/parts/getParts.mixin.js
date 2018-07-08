@@ -9,7 +9,7 @@ export default {
 	}
 	,computed: {
 		parts(){
-			return this.$store.state.parts || {arms:[],heads:[],torsos:[],bases:[]};
+			return this.$store.state.robots.parts || {arms:[],heads:[],torsos:[],bases:[]};
 		}
 	}
 }

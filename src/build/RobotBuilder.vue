@@ -163,8 +163,8 @@
 			}//headBorderStyle
 
 			,availableParts(){
-				console.log("availableParts() returning:", this.$store.state.parts );
-				return this.$store.state.parts;
+				console.log("availableParts() returning:", this.$store.state.robots.parts );
+				return this.$store.state.robots.parts;
 			}
 
 			,computedHeadClasses() {
@@ -192,7 +192,7 @@
 				// this.$store.commit( "addBotToCart", botCopy );//call mutation
 				this.$store.dispatch( "addBotToCart", botCopy )
 					.then( () => {
-						console.log("Saved, current cart:", this.$store.state.cart );
+						console.log("Saved, current cart:", this.$store.state.robots.cart );
 						this.isDirty = false;
 						this.$router.push("/cart");
 					});//call action (API call) that calls store mutation on success
