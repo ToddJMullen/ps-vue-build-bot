@@ -57,7 +57,10 @@ import {mapState} from "vuex";
 export default {
 	name: 'app'//ref to div#app above
 	,computed: {
-		...mapState({
+		cart(){
+			return this.$store.state.robots.cart;
+		}
+		,...mapState({
 			rootFoo: "foo"//replaces rootFoo() below
 			// ,robotsFoo: state => state.robots.foo//replaces robotsFoo() below
 			,usersFoo: state => state.users.foo//replaces usersFoo() below
@@ -65,9 +68,6 @@ export default {
 		// ,...mapState("users", { usersFoo: "foo" })//also replaces usersFoo() below
 		// ^^^^^^ this syntax ONLY works with namespaced modules, so we have to use the version above
 		,...mapState("robots", {robotsFoo: "foo"})//namespaced only syntax replaced version above
-		,cart(){
-			return this.$store.state.robots.cart;
-		}
 		// ,rootFoo(){
 		// 	return this.$store.state.foo;
 		// }
