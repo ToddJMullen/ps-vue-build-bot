@@ -5,6 +5,7 @@ export default {
 	,state: {
 		cart: []//create initial object so that Vue will know to set up watchers
 		,parts: null
+		,foo: "robot-foo"
 	}
 	,mutations: {//all "direct" changes must/should be through mutation methods
 		//mutations are accessed via $store.commit("methodName", params )
@@ -19,6 +20,9 @@ export default {
 	,getters: {
 		cartSaleItems(state){
 			return state.cart.filter( item => item.head.onSale );
+		}
+		,foo(state){
+			return `robot-getter/${state.foo}`;
 		}
 	}
 	,actions: {//actions are accessed via $store.dispatch("methodName", params )

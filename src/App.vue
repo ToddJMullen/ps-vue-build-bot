@@ -1,5 +1,12 @@
 <template>
   <div id="app">
+	  Root Foo: {{rootFoo}}<br />
+	  Robots Foo: {{robotsFoo}}<br />
+	  Users Foo: {{usersFoo}}<br />
+	  <br />
+	  Root Getter: {{rootGetterFoo}}<br />
+	  Robots Getter: {{robotsGetterFoo}}<br />
+	  Users Getter: {{usersGetterFoo}}<br />
 	  <header>
 		  <nav>
 			  <ul>
@@ -45,12 +52,40 @@
 //import HomePage from './home/HomePage.vue';
 // import RobotBuilder from "./build/RobotBuilder.vue";
 
+import {mapState} from "vuex";
+
 export default {
 	name: 'app'//ref to div#app above
 	,computed: {
-		cart(){
+		...mapState({
+			rootFoo: "foo"//replaces rootFoo() below
+			// ,robotsFoo: state => state.robots.foo//replaces robotsFoo() below
+			,usersFoo: state => state.users.foo//replaces usersFoo() below
+		})
+		// ,...mapState("users", { usersFoo: "foo" })//also replaces usersFoo() below
+		// ^^^^^^ this syntax ONLY works with namespaced modules, so we have to use the version above
+		,...mapState("robots", {robotsFoo: "foo"})//namespaced only syntax replaced version above
+		,cart(){
 			return this.$store.state.robots.cart;
-		} 
+		}
+		// ,rootFoo(){
+		// 	return this.$store.state.foo;
+		// }
+		// ,robotsFoo(){
+		// 	return this.$store.state.robots.foo;
+		// }
+		// ,usersFoo(){
+		// 	return this.$store.state.users.foo;
+		// }
+		,rootGetterFoo(){
+			return this.$store.getters.foo;
+		}
+		,robotsGetterFoo(){
+			return this.$store.getters["robots/foo"];
+		}
+		,usersGetterFoo(){
+			return this.$store.getters["users/foo"];
+		}
 	}
 	,components: {
 		//    HomePage
