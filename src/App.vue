@@ -6,7 +6,8 @@
 	  <br />
 	  Root Getter: {{rootGetterFoo}}<br />
 	  Robots Getter: {{robotsGetterFoo}}<br />
-	  Users Getter: {{usersGetterFoo}}<br />
+	  <!-- Users Getter: {{usersGetterFoo}}<br /> -->
+	  <!-- no longer used -->
 	  <header>
 		  <nav>
 			  <ul>
@@ -52,7 +53,7 @@
 //import HomePage from './home/HomePage.vue';
 // import RobotBuilder from "./build/RobotBuilder.vue";
 
-import {mapState} from "vuex";
+import {mapState, mapGetters} from "vuex";
 
 export default {
 	name: 'app'//ref to div#app above
@@ -77,15 +78,17 @@ export default {
 		// ,usersFoo(){
 		// 	return this.$store.state.users.foo;
 		// }
-		,rootGetterFoo(){
-			return this.$store.getters.foo;
-		}
-		,robotsGetterFoo(){
-			return this.$store.getters["robots/foo"];
-		}
-		,usersGetterFoo(){
-			return this.$store.getters["users/foo"];
-		}
+		,...mapGetters({rootGetterFoo: 'foo'})//replaced syntax below
+		,...mapGetters("robots", {robotsGetterFoo: "foo"})//replaced syntax below
+		// ,rootGetterFoo(){
+		// 	return this.$store.getters.foo;
+		// }
+		// ,robotsGetterFoo(){
+		// 	return this.$store.getters["robots/foo"];
+		// }
+		// ,usersGetterFoo(){//this one is now unused?
+		// 	return this.$store.getters["users/foo"];
+		// }
 	}
 	,components: {
 		//    HomePage
