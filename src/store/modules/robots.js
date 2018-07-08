@@ -1,9 +1,8 @@
 import axios from "axios";
 
 export default {
-
-
-	state: {
+	namespaced: true
+	,state: {
 		cart: []//create initial object so that Vue will know to set up watchers
 		,parts: null
 	}
