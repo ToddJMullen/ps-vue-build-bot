@@ -68,7 +68,7 @@ export default {
   },
   methods: {
     showPartInfo(){
-      console.log("showPartInfo()");
+      // console.log("showPartInfo()");
       this.$router.push( {
           name: "Parts"
           , params: {
@@ -78,7 +78,7 @@ export default {
       });
     }
 	  ,emitSelectedPart() {
-		  console.log("emitSelectedPart()", this.selectedPart, this.changed );
+		  // console.log("emitSelectedPart()", this.selectedPart, this.changed );
 		  this.$emit("selectedPart", this.selectedPart, this.changed );
 	  }
     ,selectNextPart() {
