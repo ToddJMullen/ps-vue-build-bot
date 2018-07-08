@@ -61,6 +61,8 @@ export default {
 		cart(){
 			return this.$store.state.robots.cart;
 		}
+		// ,...mapState(["foo, other, etc"])//this syntax allows importing state props
+		//but if you want to rename the imported props yo have to use object syntax like below
 		,...mapState({
 			rootFoo: "foo"//replaces rootFoo() below
 			// ,robotsFoo: state => state.robots.foo//replaces robotsFoo() below
