@@ -67,7 +67,7 @@ export default new Router({
 			}
 		}
 		,{name: "Cart"
-			,path: "cart"
+			,path: "/cart"//does not work (?correctly?) without without leading / viz: use "/cart" not "cart"
 			,component: ShoppingCart
 		}
 	]
