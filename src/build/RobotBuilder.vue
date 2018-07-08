@@ -108,6 +108,7 @@
 <script>
 	// bring in robot part resource data
 	// import availableParts from "../data/parts";//replaced with api call
+	import { mapActions } from "vuex";
 	import hookMixin from "./hook-mixin"
 	import PartSelector from "./PartSelector";
 	import CollapseSect from "../shared/CollapseSect";
@@ -176,7 +177,8 @@
 			}//computedHeadClasses
 		}//computed
 		,methods: {
-			addToCart() {
+			...mapActions("robots", ["getParts", "addRobotToCart"])
+			,addToCart() {
 				let bot	= this.selectedRobot
 				,cost		= bot.head.cost
 								+ bot.armL.cost
