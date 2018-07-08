@@ -189,7 +189,13 @@
 				console.log("addToCart()", botCopy );
 
 				// this.cart.push( botCopy );
-				this.$store.commit( "addBotToCart", botCopy );
+				// this.$store.commit( "addBotToCart", botCopy );//call mutation
+				this.$store.dispatch( "addBotToCart", botCopy )
+					.then( () => {
+						console.log("Saved, current cart:", this.$store.state.cart );
+						this.isDirty = false;
+						this.$router.push("/cart");
+					});//call action (API call) that calls store mutation on success
 				this.addedToCart = true;
 
 			}//addToCart
