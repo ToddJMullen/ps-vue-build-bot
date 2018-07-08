@@ -108,7 +108,7 @@
 <script>
 	// bring in robot part resource data
 	// import availableParts from "../data/parts";//replaced with api call
-	import { mapActions } from "vuex";
+	import { mapActions, mapMutations } from "vuex";
 	import hookMixin from "./hook-mixin"
 	import PartSelector from "./PartSelector";
 	import CollapseSect from "../shared/CollapseSect";
@@ -117,7 +117,8 @@
 		name: "RobotBuilder"
 		,created(){
 			console.log("created() calling to get parts...");
-			this.$store.dispatch("robots/getParts");
+			// this.$store.dispatch("robots/getParts");//simplified with mapActions in methods below
+			this.getParts();//replaces above, defined in methods
 		}
 		,components: {PartSelector, CollapseSect}
 		,beforeRouteLeave(to, from, next){
@@ -177,7 +178,8 @@
 			}//computedHeadClasses
 		}//computed
 		,methods: {
-			...mapActions("robots", ["getParts", "addRobotToCart"])
+			...mapActions("robots", ["getParts", "addBotToCart"])
+			// ,...mapMutations("robots", ["robotMutationName"])//we don't have any mutations to import to local methods
 			,addToCart() {
 				let bot	= this.selectedRobot
 				,cost		= bot.head.cost
@@ -192,7 +194,8 @@
 
 				// this.cart.push( botCopy );
 				// this.$store.commit( "addBotToCart", botCopy );//call mutation
-				this.$store.dispatch( "robots/addBotToCart", botCopy )
+				// this.$store.dispatch( "robots/addBotToCart", botCopy )//replaced with mapAction version above
+				this.addBotToCart(botCopy)//replaces above
 					.then( () => {
 						console.log("Saved, current cart:", this.$store.state.robots.cart );
 						this.isDirty = false;
