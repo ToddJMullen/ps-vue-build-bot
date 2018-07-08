@@ -1,11 +1,11 @@
 export default {
 	beforeCreate(){
 		console.log("getParts mixin beforeCreate()...");
-		// this.$store.dispatch("getParts");
+		// this.$store.dispatch("robots/getParts");
 	}
 	,created(){
 		console.log("getParts mixin created()...");
-		this.$store.dispatch("getParts");
+		this.$store.dispatch("robots/getParts");
 	}
 	,computed: {
 		parts(){

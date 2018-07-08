@@ -116,7 +116,7 @@
 		name: "RobotBuilder"
 		,created(){
 			console.log("created() calling to get parts...");
-			this.$store.dispatch("getParts");
+			this.$store.dispatch("robots/getParts");
 		}
 		,components: {PartSelector, CollapseSect}
 		,beforeRouteLeave(to, from, next){
@@ -190,7 +190,7 @@
 
 				// this.cart.push( botCopy );
 				// this.$store.commit( "addBotToCart", botCopy );//call mutation
-				this.$store.dispatch( "addBotToCart", botCopy )
+				this.$store.dispatch( "robots/addBotToCart", botCopy )
 					.then( () => {
 						console.log("Saved, current cart:", this.$store.state.robots.cart );
 						this.isDirty = false;
