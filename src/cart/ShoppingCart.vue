@@ -50,13 +50,13 @@
 </template>
 
 <script>
-    import currencyFilter from "../shared/currency-filter";
+//    import currencyFilter from "../shared/currency-filter";
 
 export default {
   name: 'ShoppingCart'
-  ,filters: {
-      currency: currencyFilter
-  }
+//  ,filters: {
+//      currency: currencyFilter
+//  }
   ,computed: {
 	  cart(){//define a local cart property/reference
 		  return this.$store.state.robots.cart;

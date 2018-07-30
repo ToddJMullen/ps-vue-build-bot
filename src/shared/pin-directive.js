@@ -1,5 +1,5 @@
 export default function pinDirective( elem, binding ){//shorthand for bind & update binding
-    console.log("pinDirective(), binding:", binding );
+//    console.log("pinDirective(), binding:", binding );
     elem.style.position = "absolute";
     Object.keys(binding.value).map( position => {
 	elem.style[ position ] = binding.value[ position ];
