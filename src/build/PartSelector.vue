@@ -13,12 +13,13 @@
     </router-link>
     <button @click="selectPreviousPart()" class="prev-selector"></button>
     <button @click="selectNextPart()" class="next-selector"></button>
-    <span class="sale" v-show="selectedPart.onSale">Sale!</span>
+    <span v-pin class="sale" v-show="selectedPart.onSale">Sale!</span>
   </div>
 </template>
 
 <script>
 // import availableParts from '../data/parts';
+import pinDirective from "../shared/pin-directive";
 
 // const parts = availableParts.heads;
 
@@ -33,13 +34,16 @@ function getNextValidIndex(index, length) {
 }
 
 export default {
-	props: {
+	directives: {
+	    pin: pinDirective
+	}
+	,props: {
 		//data/name passed to the component in markup/instantiation
 		parts: {//add validation info
 			type: Array
 			,required: true
 		}
-		,position: { 
+		,position: {
 			type: String
 			,required: true
 			,validator: function(value){
@@ -48,7 +52,7 @@ export default {
 				return ["left","right","top","bottom","center"].includes( value );
 			}
 		}
-	} 
+	}
   ,data() {
     return {
       selectedPartIndex: 0
