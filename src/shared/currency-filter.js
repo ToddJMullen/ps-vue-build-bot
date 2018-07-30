@@ -1,3 +1,3 @@
-export default function currencyFilter(amt){
-	return `$${amt.toFixed(2)}`
+export default function currencyFilter(amt, sym){
+	return `${sym}${amt.toFixed(2)}`
 }
