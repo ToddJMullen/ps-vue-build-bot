@@ -2,7 +2,7 @@
   <div class="part" :class="position" >
     <!-- <img :src="selectedPart.src" title="arm"
           @click="showPartInfo()"/> -->
-    {{pinPadding}}
+    <!--{{pinPadding}}-->
     <router-link :to="{
           name: 'Parts'
           ,params: {
@@ -14,7 +14,8 @@
     </router-link>
     <button @click="selectPreviousPart()" class="prev-selector"></button>
     <button @click="selectNextPart()" class="next-selector"></button>
-    <span @click="pinPadding='30px'"
+	<!--@click="pinPadding='30px'"-->
+    <span
 	v-pin="{bottom: pinPadding, right: pinPadding}"
 	  class="sale" v-show="selectedPart.onSale">Sale!</span>
   </div>
