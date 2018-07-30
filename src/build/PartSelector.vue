@@ -23,7 +23,7 @@
 
 <script>
 // import availableParts from '../data/parts';
-import pinDirective from "../shared/pin-directive";
+//import pinDirective from "../shared/pin-directive";
 
 // const parts = availableParts.heads;
 
@@ -38,10 +38,10 @@ function getNextValidIndex(index, length) {
 }
 
 export default {
-	directives: {
-	    pin: pinDirective
-	}
-	,props: {
+//	directives: {
+//	    pin: pinDirective
+//	},
+	props: {
 		//data/name passed to the component in markup/instantiation
 		parts: {//add validation info
 			type: Array
