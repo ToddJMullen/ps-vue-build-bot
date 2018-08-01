@@ -17,6 +17,9 @@ export default {
   props: {
     msg: String
   }
+  ,created(){
+	  console.log(`created() ${process.env.VUE_APP_TEST}`)
+  }
 };
 </script>
 
