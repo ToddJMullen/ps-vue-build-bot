@@ -45,19 +45,16 @@
   module: {
     noParse: /^(vue|vue-router|vuex|vuex-router-sync)$/,
     rules: [
-      /* config.module.rule('vue') */
       {
         test: /\.vue$/,
         use: [
-          /* config.module.rule('vue').use('cache-loader') */
           {
             loader: 'cache-loader',
             options: {
               cacheDirectory: '/home/todd/Dev/Ps/vue/VueFundamentals/build-a-bot/node_modules/.cache/vue-loader',
-              cacheIdentifier: '8bd39232'
+              cacheIdentifier: '30bdd17d'
             }
           },
-          /* config.module.rule('vue').use('vue-loader') */
           {
             loader: 'vue-loader',
             options: {
@@ -65,16 +62,14 @@
                 preserveWhitespace: false
               },
               cacheDirectory: '/home/todd/Dev/Ps/vue/VueFundamentals/build-a-bot/node_modules/.cache/vue-loader',
-              cacheIdentifier: '8bd39232'
+              cacheIdentifier: '30bdd17d'
             }
           }
         ]
       },
-      /* config.module.rule('images') */
       {
         test: /\.(png|jpe?g|gif|webp)(\?.*)?$/,
         use: [
-          /* config.module.rule('images').use('url-loader') */
           {
             loader: 'url-loader',
             options: {
@@ -84,11 +79,9 @@
           }
         ]
       },
-      /* config.module.rule('svg') */
       {
         test: /\.(svg)(\?.*)?$/,
         use: [
-          /* config.module.rule('svg').use('file-loader') */
           {
             loader: 'file-loader',
             options: {
@@ -97,11 +90,9 @@
           }
         ]
       },
-      /* config.module.rule('media') */
       {
         test: /\.(mp4|webm|ogg|mp3|wav|flac|aac)(\?.*)?$/,
         use: [
-          /* config.module.rule('media').use('url-loader') */
           {
             loader: 'url-loader',
             options: {
@@ -111,11 +102,9 @@
           }
         ]
       },
-      /* config.module.rule('fonts') */
       {
         test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/i,
         use: [
-          /* config.module.rule('fonts').use('url-loader') */
           {
             loader: 'url-loader',
             options: {
@@ -125,29 +114,23 @@
           }
         ]
       },
-      /* config.module.rule('pug') */
       {
         test: /\.pug$/,
         use: [
-          /* config.module.rule('pug').use('pug-plain-loader') */
           {
             loader: 'pug-plain-loader'
           }
         ]
       },
-      /* config.module.rule('css') */
       {
         test: /\.css$/,
         oneOf: [
-          /* config.module.rule('css').oneOf('vue-modules') */
           {
             resourceQuery: /module/,
             use: [
-              /* config.module.rule('css').oneOf('vue-modules').use('extract-css-loader') */
               {
                 loader: '/home/todd/Dev/Ps/vue/VueFundamentals/build-a-bot/node_modules/mini-css-extract-plugin/dist/loader.js'
               },
-              /* config.module.rule('css').oneOf('vue-modules').use('css-loader') */
               {
                 loader: 'css-loader',
                 options: {
@@ -158,7 +141,6 @@
                   localIdentName: '[name]_[local]_[hash:base64:5]'
                 }
               },
-              /* config.module.rule('css').oneOf('vue-modules').use('postcss-loader') */
               {
                 loader: 'postcss-loader',
                 options: {
@@ -167,15 +149,12 @@
               }
             ]
           },
-          /* config.module.rule('css').oneOf('vue') */
           {
             resourceQuery: /\?vue/,
             use: [
-              /* config.module.rule('css').oneOf('vue').use('extract-css-loader') */
               {
                 loader: '/home/todd/Dev/Ps/vue/VueFundamentals/build-a-bot/node_modules/mini-css-extract-plugin/dist/loader.js'
               },
-              /* config.module.rule('css').oneOf('vue').use('css-loader') */
               {
                 loader: 'css-loader',
                 options: {
@@ -184,7 +163,6 @@
                   importLoaders: 2
                 }
               },
-              /* config.module.rule('css').oneOf('vue').use('postcss-loader') */
               {
                 loader: 'postcss-loader',
                 options: {
@@ -193,15 +171,12 @@
               }
             ]
           },
-          /* config.module.rule('css').oneOf('normal-modules') */
           {
             test: /\.module\.\w+$/,
             use: [
-              /* config.module.rule('css').oneOf('normal-modules').use('extract-css-loader') */
               {
                 loader: '/home/todd/Dev/Ps/vue/VueFundamentals/build-a-bot/node_modules/mini-css-extract-plugin/dist/loader.js'
               },
-              /* config.module.rule('css').oneOf('normal-modules').use('css-loader') */
               {
                 loader: 'css-loader',
                 options: {
@@ -212,7 +187,6 @@
                   localIdentName: '[name]_[local]_[hash:base64:5]'
                 }
               },
-              /* config.module.rule('css').oneOf('normal-modules').use('postcss-loader') */
               {
                 loader: 'postcss-loader',
                 options: {
@@ -221,14 +195,11 @@
               }
             ]
           },
-          /* config.module.rule('css').oneOf('normal') */
           {
             use: [
-              /* config.module.rule('css').oneOf('normal').use('extract-css-loader') */
               {
                 loader: '/home/todd/Dev/Ps/vue/VueFundamentals/build-a-bot/node_modules/mini-css-extract-plugin/dist/loader.js'
               },
-              /* config.module.rule('css').oneOf('normal').use('css-loader') */
               {
                 loader: 'css-loader',
                 options: {
@@ -237,7 +208,6 @@
                   importLoaders: 2
                 }
               },
-              /* config.module.rule('css').oneOf('normal').use('postcss-loader') */
               {
                 loader: 'postcss-loader',
                 options: {
@@ -248,19 +218,15 @@
           }
         ]
       },
-      /* config.module.rule('postcss') */
       {
         test: /\.p(ost)?css$/,
         oneOf: [
-          /* config.module.rule('postcss').oneOf('vue-modules') */
           {
             resourceQuery: /module/,
             use: [
-              /* config.module.rule('postcss').oneOf('vue-modules').use('extract-css-loader') */
               {
                 loader: '/home/todd/Dev/Ps/vue/VueFundamentals/build-a-bot/node_modules/mini-css-extract-plugin/dist/loader.js'
               },
-              /* config.module.rule('postcss').oneOf('vue-modules').use('css-loader') */
               {
                 loader: 'css-loader',
                 options: {
@@ -271,7 +237,6 @@
                   localIdentName: '[name]_[local]_[hash:base64:5]'
                 }
               },
-              /* config.module.rule('postcss').oneOf('vue-modules').use('postcss-loader') */
               {
                 loader: 'postcss-loader',
                 options: {
@@ -280,15 +245,12 @@
               }
             ]
           },
-          /* config.module.rule('postcss').oneOf('vue') */
           {
             resourceQuery: /\?vue/,
             use: [
-              /* config.module.rule('postcss').oneOf('vue').use('extract-css-loader') */
               {
                 loader: '/home/todd/Dev/Ps/vue/VueFundamentals/build-a-bot/node_modules/mini-css-extract-plugin/dist/loader.js'
               },
-              /* config.module.rule('postcss').oneOf('vue').use('css-loader') */
               {
                 loader: 'css-loader',
                 options: {
@@ -297,7 +259,6 @@
                   importLoaders: 2
                 }
               },
-              /* config.module.rule('postcss').oneOf('vue').use('postcss-loader') */
               {
                 loader: 'postcss-loader',
                 options: {
@@ -306,15 +267,12 @@
               }
             ]
           },
-          /* config.module.rule('postcss').oneOf('normal-modules') */
           {
             test: /\.module\.\w+$/,
             use: [
-              /* config.module.rule('postcss').oneOf('normal-modules').use('extract-css-loader') */
               {
                 loader: '/home/todd/Dev/Ps/vue/VueFundamentals/build-a-bot/node_modules/mini-css-extract-plugin/dist/loader.js'
               },
-              /* config.module.rule('postcss').oneOf('normal-modules').use('css-loader') */
               {
                 loader: 'css-loader',
                 options: {
@@ -325,7 +283,6 @@
                   localIdentName: '[name]_[local]_[hash:base64:5]'
                 }
               },
-              /* config.module.rule('postcss').oneOf('normal-modules').use('postcss-loader') */
               {
                 loader: 'postcss-loader',
                 options: {
@@ -334,14 +291,11 @@
               }
             ]
           },
-          /* config.module.rule('postcss').oneOf('normal') */
           {
             use: [
-              /* config.module.rule('postcss').oneOf('normal').use('extract-css-loader') */
               {
                 loader: '/home/todd/Dev/Ps/vue/VueFundamentals/build-a-bot/node_modules/mini-css-extract-plugin/dist/loader.js'
               },
-              /* config.module.rule('postcss').oneOf('normal').use('css-loader') */
               {
                 loader: 'css-loader',
                 options: {
@@ -350,7 +304,6 @@
                   importLoaders: 2
                 }
               },
-              /* config.module.rule('postcss').oneOf('normal').use('postcss-loader') */
               {
                 loader: 'postcss-loader',
                 options: {
@@ -361,19 +314,15 @@
           }
         ]
       },
-      /* config.module.rule('scss') */
       {
         test: /\.scss$/,
         oneOf: [
-          /* config.module.rule('scss').oneOf('vue-modules') */
           {
             resourceQuery: /module/,
             use: [
-              /* config.module.rule('scss').oneOf('vue-modules').use('extract-css-loader') */
               {
                 loader: '/home/todd/Dev/Ps/vue/VueFundamentals/build-a-bot/node_modules/mini-css-extract-plugin/dist/loader.js'
               },
-              /* config.module.rule('scss').oneOf('vue-modules').use('css-loader') */
               {
                 loader: 'css-loader',
                 options: {
@@ -384,14 +333,12 @@
                   localIdentName: '[name]_[local]_[hash:base64:5]'
                 }
               },
-              /* config.module.rule('scss').oneOf('vue-modules').use('postcss-loader') */
               {
                 loader: 'postcss-loader',
                 options: {
                   sourceMap: false
                 }
               },
-              /* config.module.rule('scss').oneOf('vue-modules').use('sass-loader') */
               {
                 loader: 'sass-loader',
                 options: {
@@ -400,15 +347,12 @@
               }
             ]
           },
-          /* config.module.rule('scss').oneOf('vue') */
           {
             resourceQuery: /\?vue/,
             use: [
-              /* config.module.rule('scss').oneOf('vue').use('extract-css-loader') */
               {
                 loader: '/home/todd/Dev/Ps/vue/VueFundamentals/build-a-bot/node_modules/mini-css-extract-plugin/dist/loader.js'
               },
-              /* config.module.rule('scss').oneOf('vue').use('css-loader') */
               {
                 loader: 'css-loader',
                 options: {
@@ -417,14 +361,12 @@
                   importLoaders: 3
                 }
               },
-              /* config.module.rule('scss').oneOf('vue').use('postcss-loader') */
               {
                 loader: 'postcss-loader',
                 options: {
                   sourceMap: false
                 }
               },
-              /* config.module.rule('scss').oneOf('vue').use('sass-loader') */
               {
                 loader: 'sass-loader',
                 options: {
@@ -433,15 +375,12 @@
               }
             ]
           },
-          /* config.module.rule('scss').oneOf('normal-modules') */
           {
             test: /\.module\.\w+$/,
             use: [
-              /* config.module.rule('scss').oneOf('normal-modules').use('extract-css-loader') */
               {
                 loader: '/home/todd/Dev/Ps/vue/VueFundamentals/build-a-bot/node_modules/mini-css-extract-plugin/dist/loader.js'
               },
-              /* config.module.rule('scss').oneOf('normal-modules').use('css-loader') */
               {
                 loader: 'css-loader',
                 options: {
@@ -452,14 +391,12 @@
                   localIdentName: '[name]_[local]_[hash:base64:5]'
                 }
               },
-              /* config.module.rule('scss').oneOf('normal-modules').use('postcss-loader') */
               {
                 loader: 'postcss-loader',
                 options: {
                   sourceMap: false
                 }
               },
-              /* config.module.rule('scss').oneOf('normal-modules').use('sass-loader') */
               {
                 loader: 'sass-loader',
                 options: {
@@ -468,14 +405,11 @@
               }
             ]
           },
-          /* config.module.rule('scss').oneOf('normal') */
           {
             use: [
-              /* config.module.rule('scss').oneOf('normal').use('extract-css-loader') */
               {
                 loader: '/home/todd/Dev/Ps/vue/VueFundamentals/build-a-bot/node_modules/mini-css-extract-plugin/dist/loader.js'
               },
-              /* config.module.rule('scss').oneOf('normal').use('css-loader') */
               {
                 loader: 'css-loader',
                 options: {
@@ -484,14 +418,12 @@
                   importLoaders: 3
                 }
               },
-              /* config.module.rule('scss').oneOf('normal').use('postcss-loader') */
               {
                 loader: 'postcss-loader',
                 options: {
                   sourceMap: false
                 }
               },
-              /* config.module.rule('scss').oneOf('normal').use('sass-loader') */
               {
                 loader: 'sass-loader',
                 options: {
@@ -502,19 +434,15 @@
           }
         ]
       },
-      /* config.module.rule('sass') */
       {
         test: /\.sass$/,
         oneOf: [
-          /* config.module.rule('sass').oneOf('vue-modules') */
           {
             resourceQuery: /module/,
             use: [
-              /* config.module.rule('sass').oneOf('vue-modules').use('extract-css-loader') */
               {
                 loader: '/home/todd/Dev/Ps/vue/VueFundamentals/build-a-bot/node_modules/mini-css-extract-plugin/dist/loader.js'
               },
-              /* config.module.rule('sass').oneOf('vue-modules').use('css-loader') */
               {
                 loader: 'css-loader',
                 options: {
@@ -525,14 +453,12 @@
                   localIdentName: '[name]_[local]_[hash:base64:5]'
                 }
               },
-              /* config.module.rule('sass').oneOf('vue-modules').use('postcss-loader') */
               {
                 loader: 'postcss-loader',
                 options: {
                   sourceMap: false
                 }
               },
-              /* config.module.rule('sass').oneOf('vue-modules').use('sass-loader') */
               {
                 loader: 'sass-loader',
                 options: {
@@ -542,15 +468,12 @@
               }
             ]
           },
-          /* config.module.rule('sass').oneOf('vue') */
           {
             resourceQuery: /\?vue/,
             use: [
-              /* config.module.rule('sass').oneOf('vue').use('extract-css-loader') */
               {
                 loader: '/home/todd/Dev/Ps/vue/VueFundamentals/build-a-bot/node_modules/mini-css-extract-plugin/dist/loader.js'
               },
-              /* config.module.rule('sass').oneOf('vue').use('css-loader') */
               {
                 loader: 'css-loader',
                 options: {
@@ -559,14 +482,12 @@
                   importLoaders: 3
                 }
               },
-              /* config.module.rule('sass').oneOf('vue').use('postcss-loader') */
               {
                 loader: 'postcss-loader',
                 options: {
                   sourceMap: false
                 }
               },
-              /* config.module.rule('sass').oneOf('vue').use('sass-loader') */
               {
                 loader: 'sass-loader',
                 options: {
@@ -576,15 +497,12 @@
               }
             ]
           },
-          /* config.module.rule('sass').oneOf('normal-modules') */
           {
             test: /\.module\.\w+$/,
             use: [
-              /* config.module.rule('sass').oneOf('normal-modules').use('extract-css-loader') */
               {
                 loader: '/home/todd/Dev/Ps/vue/VueFundamentals/build-a-bot/node_modules/mini-css-extract-plugin/dist/loader.js'
               },
-              /* config.module.rule('sass').oneOf('normal-modules').use('css-loader') */
               {
                 loader: 'css-loader',
                 options: {
@@ -595,14 +513,12 @@
                   localIdentName: '[name]_[local]_[hash:base64:5]'
                 }
               },
-              /* config.module.rule('sass').oneOf('normal-modules').use('postcss-loader') */
               {
                 loader: 'postcss-loader',
                 options: {
                   sourceMap: false
                 }
               },
-              /* config.module.rule('sass').oneOf('normal-modules').use('sass-loader') */
               {
                 loader: 'sass-loader',
                 options: {
@@ -612,14 +528,11 @@
               }
             ]
           },
-          /* config.module.rule('sass').oneOf('normal') */
           {
             use: [
-              /* config.module.rule('sass').oneOf('normal').use('extract-css-loader') */
               {
                 loader: '/home/todd/Dev/Ps/vue/VueFundamentals/build-a-bot/node_modules/mini-css-extract-plugin/dist/loader.js'
               },
-              /* config.module.rule('sass').oneOf('normal').use('css-loader') */
               {
                 loader: 'css-loader',
                 options: {
@@ -628,14 +541,12 @@
                   importLoaders: 3
                 }
               },
-              /* config.module.rule('sass').oneOf('normal').use('postcss-loader') */
               {
                 loader: 'postcss-loader',
                 options: {
                   sourceMap: false
                 }
               },
-              /* config.module.rule('sass').oneOf('normal').use('sass-loader') */
               {
                 loader: 'sass-loader',
                 options: {
@@ -647,19 +558,15 @@
           }
         ]
       },
-      /* config.module.rule('less') */
       {
         test: /\.less$/,
         oneOf: [
-          /* config.module.rule('less').oneOf('vue-modules') */
           {
             resourceQuery: /module/,
             use: [
-              /* config.module.rule('less').oneOf('vue-modules').use('extract-css-loader') */
               {
                 loader: '/home/todd/Dev/Ps/vue/VueFundamentals/build-a-bot/node_modules/mini-css-extract-plugin/dist/loader.js'
               },
-              /* config.module.rule('less').oneOf('vue-modules').use('css-loader') */
               {
                 loader: 'css-loader',
                 options: {
@@ -670,14 +577,12 @@
                   localIdentName: '[name]_[local]_[hash:base64:5]'
                 }
               },
-              /* config.module.rule('less').oneOf('vue-modules').use('postcss-loader') */
               {
                 loader: 'postcss-loader',
                 options: {
                   sourceMap: false
                 }
               },
-              /* config.module.rule('less').oneOf('vue-modules').use('less-loader') */
               {
                 loader: 'less-loader',
                 options: {
@@ -686,15 +591,12 @@
               }
             ]
           },
-          /* config.module.rule('less').oneOf('vue') */
           {
             resourceQuery: /\?vue/,
             use: [
-              /* config.module.rule('less').oneOf('vue').use('extract-css-loader') */
               {
                 loader: '/home/todd/Dev/Ps/vue/VueFundamentals/build-a-bot/node_modules/mini-css-extract-plugin/dist/loader.js'
               },
-              /* config.module.rule('less').oneOf('vue').use('css-loader') */
               {
                 loader: 'css-loader',
                 options: {
@@ -703,14 +605,12 @@
                   importLoaders: 3
                 }
               },
-              /* config.module.rule('less').oneOf('vue').use('postcss-loader') */
               {
                 loader: 'postcss-loader',
                 options: {
                   sourceMap: false
                 }
               },
-              /* config.module.rule('less').oneOf('vue').use('less-loader') */
               {
                 loader: 'less-loader',
                 options: {
@@ -719,15 +619,12 @@
               }
             ]
           },
-          /* config.module.rule('less').oneOf('normal-modules') */
           {
             test: /\.module\.\w+$/,
             use: [
-              /* config.module.rule('less').oneOf('normal-modules').use('extract-css-loader') */
               {
                 loader: '/home/todd/Dev/Ps/vue/VueFundamentals/build-a-bot/node_modules/mini-css-extract-plugin/dist/loader.js'
               },
-              /* config.module.rule('less').oneOf('normal-modules').use('css-loader') */
               {
                 loader: 'css-loader',
                 options: {
@@ -738,14 +635,12 @@
                   localIdentName: '[name]_[local]_[hash:base64:5]'
                 }
               },
-              /* config.module.rule('less').oneOf('normal-modules').use('postcss-loader') */
               {
                 loader: 'postcss-loader',
                 options: {
                   sourceMap: false
                 }
               },
-              /* config.module.rule('less').oneOf('normal-modules').use('less-loader') */
               {
                 loader: 'less-loader',
                 options: {
@@ -754,14 +649,11 @@
               }
             ]
           },
-          /* config.module.rule('less').oneOf('normal') */
           {
             use: [
-              /* config.module.rule('less').oneOf('normal').use('extract-css-loader') */
               {
                 loader: '/home/todd/Dev/Ps/vue/VueFundamentals/build-a-bot/node_modules/mini-css-extract-plugin/dist/loader.js'
               },
-              /* config.module.rule('less').oneOf('normal').use('css-loader') */
               {
                 loader: 'css-loader',
                 options: {
@@ -770,14 +662,12 @@
                   importLoaders: 3
                 }
               },
-              /* config.module.rule('less').oneOf('normal').use('postcss-loader') */
               {
                 loader: 'postcss-loader',
                 options: {
                   sourceMap: false
                 }
               },
-              /* config.module.rule('less').oneOf('normal').use('less-loader') */
               {
                 loader: 'less-loader',
                 options: {
@@ -788,19 +678,15 @@
           }
         ]
       },
-      /* config.module.rule('stylus') */
       {
         test: /\.styl(us)?$/,
         oneOf: [
-          /* config.module.rule('stylus').oneOf('vue-modules') */
           {
             resourceQuery: /module/,
             use: [
-              /* config.module.rule('stylus').oneOf('vue-modules').use('extract-css-loader') */
               {
                 loader: '/home/todd/Dev/Ps/vue/VueFundamentals/build-a-bot/node_modules/mini-css-extract-plugin/dist/loader.js'
               },
-              /* config.module.rule('stylus').oneOf('vue-modules').use('css-loader') */
               {
                 loader: 'css-loader',
                 options: {
@@ -811,14 +697,12 @@
                   localIdentName: '[name]_[local]_[hash:base64:5]'
                 }
               },
-              /* config.module.rule('stylus').oneOf('vue-modules').use('postcss-loader') */
               {
                 loader: 'postcss-loader',
                 options: {
                   sourceMap: false
                 }
               },
-              /* config.module.rule('stylus').oneOf('vue-modules').use('stylus-loader') */
               {
                 loader: 'stylus-loader',
                 options: {
@@ -828,15 +712,12 @@
               }
             ]
           },
-          /* config.module.rule('stylus').oneOf('vue') */
           {
             resourceQuery: /\?vue/,
             use: [
-              /* config.module.rule('stylus').oneOf('vue').use('extract-css-loader') */
               {
                 loader: '/home/todd/Dev/Ps/vue/VueFundamentals/build-a-bot/node_modules/mini-css-extract-plugin/dist/loader.js'
               },
-              /* config.module.rule('stylus').oneOf('vue').use('css-loader') */
               {
                 loader: 'css-loader',
                 options: {
@@ -845,14 +726,12 @@
                   importLoaders: 3
                 }
               },
-              /* config.module.rule('stylus').oneOf('vue').use('postcss-loader') */
               {
                 loader: 'postcss-loader',
                 options: {
                   sourceMap: false
                 }
               },
-              /* config.module.rule('stylus').oneOf('vue').use('stylus-loader') */
               {
                 loader: 'stylus-loader',
                 options: {
@@ -862,15 +741,12 @@
               }
             ]
           },
-          /* config.module.rule('stylus').oneOf('normal-modules') */
           {
             test: /\.module\.\w+$/,
             use: [
-              /* config.module.rule('stylus').oneOf('normal-modules').use('extract-css-loader') */
               {
                 loader: '/home/todd/Dev/Ps/vue/VueFundamentals/build-a-bot/node_modules/mini-css-extract-plugin/dist/loader.js'
               },
-              /* config.module.rule('stylus').oneOf('normal-modules').use('css-loader') */
               {
                 loader: 'css-loader',
                 options: {
@@ -881,14 +757,12 @@
                   localIdentName: '[name]_[local]_[hash:base64:5]'
                 }
               },
-              /* config.module.rule('stylus').oneOf('normal-modules').use('postcss-loader') */
               {
                 loader: 'postcss-loader',
                 options: {
                   sourceMap: false
                 }
               },
-              /* config.module.rule('stylus').oneOf('normal-modules').use('stylus-loader') */
               {
                 loader: 'stylus-loader',
                 options: {
@@ -898,14 +772,11 @@
               }
             ]
           },
-          /* config.module.rule('stylus').oneOf('normal') */
           {
             use: [
-              /* config.module.rule('stylus').oneOf('normal').use('extract-css-loader') */
               {
                 loader: '/home/todd/Dev/Ps/vue/VueFundamentals/build-a-bot/node_modules/mini-css-extract-plugin/dist/loader.js'
               },
-              /* config.module.rule('stylus').oneOf('normal').use('css-loader') */
               {
                 loader: 'css-loader',
                 options: {
@@ -914,14 +785,12 @@
                   importLoaders: 3
                 }
               },
-              /* config.module.rule('stylus').oneOf('normal').use('postcss-loader') */
               {
                 loader: 'postcss-loader',
                 options: {
                   sourceMap: false
                 }
               },
-              /* config.module.rule('stylus').oneOf('normal').use('stylus-loader') */
               {
                 loader: 'stylus-loader',
                 options: {
@@ -933,32 +802,27 @@
           }
         ]
       },
-      /* config.module.rule('js') */
       {
         test: /\.jsx?$/,
         exclude: [
           function () { /* omitted long function */ }
         ],
         use: [
-          /* config.module.rule('js').use('cache-loader') */
           {
             loader: 'cache-loader',
             options: {
               cacheDirectory: '/home/todd/Dev/Ps/vue/VueFundamentals/build-a-bot/node_modules/.cache/babel-loader',
-              cacheIdentifier: '4a084cbd'
+              cacheIdentifier: 'c5567624'
             }
           },
-          /* config.module.rule('js').use('thread-loader') */
           {
             loader: 'thread-loader'
           },
-          /* config.module.rule('js').use('babel-loader') */
           {
             loader: 'babel-loader'
           }
         ]
       },
-      /* config.module.rule('eslint') */
       {
         enforce: 'pre',
         test: /\.(vue|(j|t)sx?)$/,
@@ -967,7 +831,6 @@
           '/home/todd/Dev/Ps/vue/VueFundamentals/build-a-bot/node_modules/@vue/cli-service/lib'
         ],
         use: [
-          /* config.module.rule('eslint').use('eslint-loader') */
           {
             loader: 'eslint-loader',
             options: {
@@ -977,11 +840,17 @@
                 '.vue'
               ],
               cache: true,
-              cacheIdentifier: 'a4c1034c',
+              cacheIdentifier: '6fb8e25e',
               emitWarning: true,
               formatter: function () { /* omitted long function */ }
             }
           }
+        ]
+      },
+      {
+        test: /\.coffee$/,
+        use: [
+          'coffee-loader'
         ]
       }
     ]
